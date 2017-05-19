@@ -1,0 +1,33 @@
+{
+  "name": "study-babel-plugin-css-modules",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --progress --inline --hot --host 0.0.0.0",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-react-css-modules": "^2.7.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-react-hmre": "^1.1.1",
+    "bootstrap-sass": "^3.3.7",
+    "css-loader": "^0.28.0",
+    "node-sass": "^4.5.2",
+    "postcss-scss": "^1.0.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.2"
+  }
+}
