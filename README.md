@@ -108,4 +108,107 @@ video {
     cursor: not-allowed; }
 ```
 
+### 検証2
+
+bootstrap-sassのクラスを利用する。
+
+```javascript
+<form>
+  <div styleName="form-group">
+  <label htmlFor="exampleInputEmail1">Email address</label>
+  <input type="email" styleName="form-control" id="exampleInputEmail1" placeholder="Email" />
+  </div>
+  <div styleName="form-group">
+  <label htmlFor="exampleInputPassword1">Password</label>
+  <input type="password" styleName="form-control" id="exampleInputPassword1" placeholder="Password" />
+  </div>
+  <div styleName="form-group">
+  <label htmlFor="exampleInputFile">File input</label>
+  <input type="file" id="exampleInputFile" />
+  <p styleName="help-block">Example block-level help text here.</p>
+  </div>
+  <div styleName="checkbox">
+  <label>
+    <input type="checkbox" /> Check me out
+  </label>
+  </div>
+  <button type="submit" styleName="btn btn-default">Submit</button>
+</form>
+```
+
+下記のエラーが発生する。
+
+```
+ERROR in ./src/index.jsx
+Module build failed: Error: /Users/takayukii/workspaces/sandbox/example-css-modules/src/index.jsx: Could not resolve the styleName 'form-group'.
+```
+
+クラスを利用するにはimportしているscssに定義が必要になる。先程のscssに定義を追記する。
+
+```scss
+.form-group {
+  @extend .form-group;
+}
+.form-control {
+  @extend .form-control;
+}
+.help-block {
+  @extend .help-block;
+}
+.checkbox {
+  @extend .checkbox;
+}
+.btn {
+  @extend .btn;
+}
+.btn-default {
+  @extend .btn-default;
+}
+```
+
+下記のようにCSSクラスは同じ。名前を変えなかったためか。
+
+```css
+.src-___index__form-control___29Gdt {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857;
+  color: #555555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; }
+  .src-___index__form-control___29Gdt:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); }
+  .src-___index__form-control___29Gdt::-moz-placeholder {
+    color: #999;
+    opacity: 1; }
+  .src-___index__form-control___29Gdt:-ms-input-placeholder {
+    color: #999; }
+  .src-___index__form-control___29Gdt::-webkit-input-placeholder {
+    color: #999; }
+  .src-___index__form-control___29Gdt::-ms-expand {
+    border: 0;
+    background-color: transparent; }
+  [disabled].src-___index__form-control___29Gdt, [readonly].src-___index__form-control___29Gdt,
+  fieldset[disabled] .src-___index__form-control___29Gdt {
+    background-color: #eeeeee;
+    opacity: 1; }
+  [disabled].src-___index__form-control___29Gdt,
+  fieldset[disabled] .src-___index__form-control___29Gdt {
+    cursor: not-allowed; }
+```
+
+再定義は面倒だが使っているクラスが明確になるのは良いかもしれない。しかし@importする事で最終的なstyleタグには含まれるのにReact側で使えないというのは微妙。
 

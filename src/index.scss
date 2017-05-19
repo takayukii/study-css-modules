@@ -49,3 +49,21 @@
 //@import "~bootstrap-sass/assets/stylesheets/bootstrap/utilities";
 //@import "~bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
 
+.form-group {
+	@extend .form-group;
+}
+.form-control {
+	@extend .form-control;
+}
+.help-block {
+	@extend .help-block;
+}
+.checkbox {
+	@extend .checkbox;
+}
+.btn {
+	@extend .btn;
+}
+.btn-default {
+	@extend .btn-default;
+}
