@@ -212,3 +212,46 @@ Module build failed: Error: /Users/takayukii/workspaces/sandbox/example-css-modu
 
 再定義は面倒だが使っているクラスが明確になるのは良いかもしれない。しかし@importする事で最終的なstyleタグには含まれるのにReact側で使えないというのは微妙。
 
+### 調査3
+
+CSSのbootstrapを使う。次のサイトからGlyphiconsを抜いてダウンロードして利用する。
+
+http://getbootstrap.com/customize/?id=6c08966c5aaa35e929c10b7f1f16768e
+
+React側から問題なく利用することができる。
+
+```css
+.src-___bootstrap__form-control___1jnT6 {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555555;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
+
+.src-___bootstrap__form-control___1jnT6:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); }
+
+.src-___bootstrap__form-control___1jnT6::-moz-placeholder {
+  color: #999999;
+  opacity: 1; }
+
+.src-___bootstrap__form-control___1jnT6:-ms-input-placeholder {
+  color: #999999; }
+
+.src-___bootstrap__form-control___1jnT6::-webkit-input-placeholder {
+  color: #999999; }
+```
