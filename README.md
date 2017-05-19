@@ -255,3 +255,47 @@ React側から問題なく利用することができる。
 .src-___bootstrap__form-control___1jnT6::-webkit-input-placeholder {
   color: #999999; }
 ```
+
+### 調査4
+
+BootstrapとカスタムCSSを両方同時に利用する（Named reference）。
+
+```javascript
+import bs from './bootstrap.css';
+import cs from './index.scss';
+
+ReactDOM.render(
+  (
+    <form styleName="cs.red-colored">
+      <div styleName="bs.form-group">
+        <label htmlFor="exampleInputEmail1">Email address</label>
+        <input type="email" styleName="bs.form-control" id="exampleInputEmail1" placeholder="Email" />
+      </div>
+      <div styleName="bs.form-group">
+        <label htmlFor="exampleInputPassword1">Password</label>
+        <input type="password" styleName="bs.form-control" id="exampleInputPassword1" placeholder="Password" />
+      </div>
+      <div styleName="bs.form-group">
+        <label htmlFor="exampleInputFile">File input</label>
+        <input type="file" id="exampleInputFile" />
+          <p styleName="bs.help-block">Example block-level help text here.</p>
+      </div>
+      <div styleName="bs.checkbox">
+        <label>
+          <input type="checkbox" /> Check me out
+        </label>
+      </div>
+      <button type="submit" styleName="bs.btn bs.btn-default">Submit</button>
+    </form>
+  ),
+  document.getElementById('spa-root')
+);
+```
+
+うまく動作する。classの設定は各ファイルの位置のまま。
+
+```html
+<div id="spa-root">
+	<form data-reactroot="" class="src-___index__red-colored___2xIsl">
+		<div class="src-___bootstrap__form-group___4yia4"><label for="exampleInputEmail1">Email address</label>
+```
